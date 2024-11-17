@@ -5,18 +5,18 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     // Start is called before the first frame update
-    // Здоровье NPC
+    // Р—РґРѕСЂРѕРІСЊРµ NPC
     public int health = 5;
-    // Уровень NPC
+    // РЈСЂРѕРІРµРЅСЊ NPC
     public int level = 1;
-    // Скорость NPC
+    // РЎРєРѕСЂРѕСЃС‚СЊ NPC
     public float speed = 1.2f;
     public Vector3 newPosition;
     void Start()
     {
-        // Добавляем к здоровь NPC его уровень и выводим здоровье в консоль
+        // Р”РѕР±Р°РІР»СЏРµРј Рє Р·РґРѕСЂРѕРІСЊ NPC РµРіРѕ СѓСЂРѕРІРµРЅСЊ Рё РІС‹РІРѕРґРёРј Р·РґРѕСЂРѕРІСЊРµ РІ РєРѕРЅСЃРѕР»СЊ
         health += level;
-        print("Здоровье: "+health);
+        print("Р—РґРѕСЂРѕРІСЊРµ: "+health);
 
     }
 
@@ -24,6 +24,18 @@ public class NPC : MonoBehaviour
     void Update()
     {
         newPosition.z += speed * Time.deltaTime;
-        transform.position = newPosition;
+        int symbolRand = Random.Range(0, 3);
+        if (symbolRand == 1)
+        {
+            newPosition.x += Random.Range(0, 7) * Time.deltaTime;
+            transform.position = newPosition;
+            print("1");
+        }
+        else if (symbolRand == 2)
+        {
+            newPosition.x -= Random.Range(0, 7) * Time.deltaTime;
+            transform.position = newPosition;
+            print("2");
+        }
     }
 }
